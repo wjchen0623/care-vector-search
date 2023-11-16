@@ -2,19 +2,35 @@ import streamlit as st
 from streamlit.logger import get_logger
 import json
 import re
+from llama_index.llms import OpenAI
+from llama_index.embeddings import OpenAIEmbedding
+from llama_index import (
+    ServiceContext,
+    set_global_service_context,
+)
+from faq_vector_search import faq_query_engine, web_content_retriever_engine
 
 LOGGER = get_logger(__name__)
-
-@st.cache_data
-def read_json_into_dict(json_path):
-   json_dict = json.load(json_path)
-   return (json_dict)
 
 def run():
     st.set_page_config(
         page_title="Bot MD Care Vector Search",
         page_icon="👩‍⚕️",
     )
+
+    @st.cache_data
+    def read_json_into_dict(json_path):
+      json_dict = json.load(json_path)
+      return (json_dict)
+
+    with open("data/ALTY/faq/faq_dict_old.json", "r") as file:
+      original_dict = read_json_into_dict(file)
+
+    with open("data/ALTY/faq/faq_dict_new.json", "r") as file:
+      new_dict = read_json_into_dict(file)
+    
+    with open("data/ALTY/web_content_mapping.json", "r") as file:
+       file2source = read_json_into_dict(file)
 
     st.write("## Welcome to Bot MD Care Vector Search")
 
@@ -32,21 +48,35 @@ def run():
     col1, col2, col3 = st.columns(3)
 
     with col1:
-      st.header("Original")
+      st.subheader("Original")
       if query is not None:
-         original_dict = read_json_into_dict("data/ALTY/faq/faq_dict_old.json")
          old_query = re.sub(r"\s+", "", query)
-         st.write(original_dict[old_query])
+         old_reply = original_dict.get(old_query, "")
+         if old_reply == "":
+            st.write("Sorry Bot")
+         else:
+            st.write(original_dict[old_query])
 
     with col2:
-      st.header("Vector Search")
+      st.subheader("Vector Search")
       if query is not None:
-         st.image("https://static.streamlit.io/examples/cat.jpg")
+         vector_search_response = faq_query_engine.query(query)
+         if len(vector_search_response.source_nodes) == 0:
+            st.write("Sorry Bot")
+         else:
+            st.write(new_dict[vector_search_response.source_nodes[0].metadata['file_path']])
 
     with col3:
-      st.header("Vector Search + Generative AI")
+      st.subheader("Vector Search + Generative AI")
       if query is not None:
-         st.image("https://static.streamlit.io/examples/cat.jpg")
+         if len(vector_search_response.source_nodes) == 1:
+            st.write(new_dict[vector_search_response.source_nodes[0].metadata['file_path']])
+         else:
+            web_content_search_result = web_content_retriever_engine.query(query)
+            st.write(web_content_search_result.response)
+            st.write("\nSources:\n")
+            for node in web_content_search_result.source_nodes:
+               st.write(file2source.get(node.metadata['file_path']))
 
 
 if __name__ == "__main__":

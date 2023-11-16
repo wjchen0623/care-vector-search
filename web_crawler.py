@@ -3,11 +3,10 @@ from bs4 import BeautifulSoup
 from urllib.parse import urljoin
 import gzip
 from io import BytesIO
-import hashlib
-import re
 import trafilatura
 import os
 from utils import create_safe_filename
+import json
 
 BASE_URL = "https://www.altyortho.com"
 PERSIST_DIR = "data/ALTY"
@@ -78,7 +77,7 @@ def extract_and_store_content(url, storage_dir):
     storage_path = os.path.join(storage_dir, file_name)
     with open(storage_path, "w") as f:
         f.write(url_content)
-    return True
+    return storage_path
 
 ## Main Logic
 
@@ -91,5 +90,10 @@ if not os.path.exists(PERSIST_DIR):
 if not os.path.exists(WEB_CONTENT_DIR):
     os.mkdir(WEB_CONTENT_DIR)
 
+source_mapping = {}
+
 for link in links:
-    extract_and_store_content(link, WEB_CONTENT_DIR)
+    source_mapping[extract_and_store_content(link, WEB_CONTENT_DIR)] = link
+
+with open(os.path.join(PERSIST_DIR, "web_content_mapping.json"), "w") as f:
+    json.dump(source_mapping, f)
