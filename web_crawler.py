@@ -7,6 +7,7 @@ import hashlib
 import re
 import trafilatura
 import os
+from utils import create_safe_filename
 
 BASE_URL = "https://www.altyortho.com"
 PERSIST_DIR = ".data/ALTY"
@@ -70,26 +71,6 @@ def extract_content(url):
     else:
         full_content = f"{title}\n{extracted_content}"
     return (full_content)
-
-def hash_url(url):
-    return hashlib.md5(url.encode()).hexdigest()
-
-def sanitize_filename(url):
-    # Remove protocol (http://, https://)
-    sanitized = re.sub(r'^https?:\/\/', '', url)
-    # Replace illegal characters with underscores
-    sanitized = re.sub(r'[\.<>:"/\\|?*]', '_', sanitized)
-    return sanitized
-
-def create_safe_filename(url, max_length=255):
-    hash_part = hash_url(url)
-    sanitized_part = sanitize_filename(url)
-
-    # Truncate sanitized part if necessary
-    max_sanitized_length = max_length - len(hash_part) - 1  # accounting for the underscore
-    sanitized_part = sanitized_part[:max_sanitized_length]
-
-    return f"{sanitized_part}_{hash_part}"
 
 def extract_and_store_content(url, storage_dir):
     file_name = create_safe_filename(url)
