@@ -60,9 +60,10 @@ def run():
        st.subheader("Vector Search + GenAI")
        st.write("Does vector search, if there is no match, tries to generate an answer based on relevant pages on the website.")
     
+    st.subheader("Answers")
     col1, col2, col3 = st.columns(3)
-
-    with col1:      
+    with col1:
+    
       if query is not None:
          old_query = re.sub(r"\s+", "", query)
          old_reply = original_dict.get(old_query, "")
@@ -88,7 +89,11 @@ def run():
             st.write(new_dict[vector_search_response.source_nodes[0].metadata['file_path']])
          else:
             web_content_search_result = web_content_retriever_engine.query(query)
-            st.write(web_content_search_result.response)
+            st.write("---\n")
+            if web_content_search_result.response == "Empty Response":
+               st.write("Sorry Bot")
+            else:
+               st.write(web_content_search_result.response)
             st.divider()
             st.write("\nSources:\n")
             for node in web_content_search_result.source_nodes:

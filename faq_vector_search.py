@@ -26,7 +26,7 @@ faq_retriever = VectorIndexRetriever(
 faq_query_engine = RetrieverQueryEngine.from_args(
     retriever=faq_retriever,
     response_mode="no_text",
-    node_postprocessors=[SimilarityPostprocessor(similarity_cutoff=0.75)],
+    node_postprocessors=[SimilarityPostprocessor(similarity_cutoff=0.8)],
     CallbackManager=faq_callback_manager
 )
 
@@ -44,5 +44,5 @@ response_synthesizer = get_response_synthesizer()
 web_content_retriever_engine = RetrieverQueryEngine.from_args(
     retriever=web_content_retriever,
     response_synthesizer=response_synthesizer,
-    node_postprocessors=[SimilarityPostprocessor(similarity_cutoff=0.8)]
+    node_postprocessors=[SimilarityPostprocessor(similarity_cutoff=0.7)]
 )
