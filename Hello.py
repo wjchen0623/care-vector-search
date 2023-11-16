@@ -34,9 +34,10 @@ def run():
 
     st.markdown(
         """
-        Demo to showcase what vector search can do for Bot MD Care.
-        Vector search is only trained on a small number of permutations of typical triggers.
-        GenAI indexed the website of the client.
+        Demo to showcase what vector search can do for Bot MD Care.  
+        Set up with ALTY as an example.  
+        Vector search is only trained on the first entry of typical triggers.  
+        GenAI indexed the website of the client.  
     """
     )
 
