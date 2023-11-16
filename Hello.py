@@ -30,7 +30,7 @@ def run():
     with open("data/ALTY/web_content_mapping.json", "r") as file:
        file2source = read_json_into_dict(file)
 
-    st.write("## Welcome to Bot MD Care Vector Search")
+    st.write("## Demo with ALTY")
 
     st.markdown(
         """
@@ -50,14 +50,16 @@ def run():
 
     with h_col1:
       st.subheader("Original")
+      st.write("Exact match")
 
     with h_col2:
        st.subheader("Vector Search")
+       st.write("Matches those with similar embedding")
 
     with h_col3:
        st.subheader("Vector Search + GenAI")
+       st.write("Does vector search, if there is no match, tries to generate an answer based on relevant pages on the website.")
     
-    st.divider()
     col1, col2, col3 = st.columns(3)
 
     with col1:      
@@ -65,7 +67,7 @@ def run():
          old_query = re.sub(r"\s+", "", query)
          old_reply = original_dict.get(old_query, "")
          if old_reply == "":
-            st.write("Sorry Bot")
+            st.write("---\nSorry Bot")
          else:
             st.write(original_dict[old_query])
 
@@ -73,9 +75,10 @@ def run():
       if query is not None:
          vector_search_response = faq_query_engine.query(query)
          if len(vector_search_response.source_nodes) == 0:
-            st.write("Sorry Bot")
+            st.write("---\nSorry Bot")
          else:
             st.write(new_dict[vector_search_response.source_nodes[0].metadata['file_path']])
+            st.divider()
             st.write("\nTrained triggers:\n")
             st.write(vector_search_response.source_nodes[0].node.get_content())
 
@@ -86,6 +89,7 @@ def run():
          else:
             web_content_search_result = web_content_retriever_engine.query(query)
             st.write(web_content_search_result.response)
+            st.divider()
             st.write("\nSources:\n")
             for node in web_content_search_result.source_nodes:
                st.write(file2source.get(node.metadata['file_path']))
