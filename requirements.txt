@@ -3,3 +3,7 @@ numpy
 pandas
 pydeck
 streamlit
+llama-index
+trafilatura
+requests
+beautifulsoup4
