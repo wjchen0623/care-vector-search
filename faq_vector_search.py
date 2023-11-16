@@ -44,5 +44,5 @@ response_synthesizer = get_response_synthesizer()
 web_content_retriever_engine = RetrieverQueryEngine.from_args(
     retriever=web_content_retriever,
     response_synthesizer=response_synthesizer,
-    node_postprocessors=[SimilarityPostprocessor(similarity_cutoff=0.75)]
+    node_postprocessors=[SimilarityPostprocessor(similarity_cutoff=0.8)]
 )

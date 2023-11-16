@@ -35,6 +35,8 @@ def run():
     st.markdown(
         """
         Demo to showcase what vector search can do for Bot MD Care.
+        Vector search is only trained on a small number of permutations of typical triggers.
+        GenAI indexed the website of the client.
     """
     )
 
@@ -43,10 +45,21 @@ def run():
     if query is None:
        st.warning("Please enter a query")
 
+    h_col1, h_col2, h_col3 = st.columns(3)
+
+    with h_col1:
+      st.subheader("Original")
+
+    with h_col2:
+       st.subheader("Vector Search")
+
+    with h_col3:
+       st.subheader("Vector Search + GenAI")
+    
+    st.divider()
     col1, col2, col3 = st.columns(3)
 
-    with col1:
-      st.subheader("Original")
+    with col1:      
       if query is not None:
          old_query = re.sub(r"\s+", "", query)
          old_reply = original_dict.get(old_query, "")
@@ -56,16 +69,16 @@ def run():
             st.write(original_dict[old_query])
 
     with col2:
-      st.subheader("Vector Search")
       if query is not None:
          vector_search_response = faq_query_engine.query(query)
          if len(vector_search_response.source_nodes) == 0:
             st.write("Sorry Bot")
          else:
             st.write(new_dict[vector_search_response.source_nodes[0].metadata['file_path']])
+            st.write("\nTrained triggers:\n")
+            st.write(vector_search_response.source_nodes[0].node.get_content())
 
     with col3:
-      st.subheader("Vector Search + Generative AI")
       if query is not None:
          if len(vector_search_response.source_nodes) == 1:
             st.write(new_dict[vector_search_response.source_nodes[0].metadata['file_path']])
