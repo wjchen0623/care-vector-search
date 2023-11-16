@@ -2,12 +2,7 @@ import streamlit as st
 from streamlit.logger import get_logger
 import json
 import re
-from llama_index.llms import OpenAI
-from llama_index.embeddings import OpenAIEmbedding
-from llama_index import (
-    ServiceContext,
-    set_global_service_context,
-)
+import os
 from faq_vector_search import faq_query_engine, web_content_retriever_engine
 
 LOGGER = get_logger(__name__)
@@ -17,6 +12,9 @@ def run():
         page_title="Bot MD Care Vector Search",
         page_icon="👩‍⚕️",
     )
+
+    if "OPENAI_API_KEY" not in os.environ:
+       os.environ["OPENAI_API_KEY"] = st.secrets["OPENAI_API_KEY"]
 
     @st.cache_data
     def read_json_into_dict(json_path):
