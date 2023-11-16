@@ -10,7 +10,7 @@ import os
 from utils import create_safe_filename
 
 BASE_URL = "https://www.altyortho.com"
-PERSIST_DIR = ".data/ALTY"
+PERSIST_DIR = "data/ALTY"
 WEB_CONTENT_DIR = os.path.join(PERSIST_DIR, "web_content")
 
 ## Function Definitions

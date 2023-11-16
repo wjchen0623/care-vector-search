@@ -1,0 +1,502 @@
+﻿ID,Status,Tags,Triggers,Response,Internal Remarks
+280,Production,cleo:alty,"Welcome Menu
+Main Menu
+Greeting
+[hello, hihi, hi] [how are you, how are u, is anyone there, can you help me, can u help me, ]
+[good, gd] [morning, morn, aft, afternoon, evening, night]","---
+message:
+  type: whatsapp_template
+  whatsapp_template:
+    header_parameters:
+      - image:
+          url: https://i.imgur.com/AQrqIeE.png
+        type: image
+    language_code: en
+    template_name: welcome_menu
+type: message",
+815,Production,cleo:alty,"Schedule Appointment
+Schedule Radiology Exam
+Book Appointment
+Appointment Booking
+Appointment Scheduling
+i [need, want] to [make, schedule, book] [a, an, ] [radiology, radio, MRI, CT, US, ultrasound, xray, EOS, ] [appointment, appt, slot, time slot, timing]
+can [you, u] help me [to, ] [schedule, book] [a, an] [appointment, appt]","---
+message:
+  type: whatsapp_template
+  whatsapp_template:
+    language_code: en
+    template_name: scheduling
+type: message",
+814,Production,cleo:alty,"What do I need to [bring, prepare, do] for my [MRI, CT, XRAY, MAMMO, US, EOS] appointment?
+What should I [bring, prepare, do] for my [MRI, CT, XRAY, MAMMO, US, EOS] appointment?
+Do I need to fast [before, prior to] my [MRI, CT, XRAY, MAMMO, US, EOS] appointment?","--- 
+message: 
+  sections: 
+    - paragraphs: 
+        - text: ""You will need to bring along your referral letter for the appointment. Once you reach Menara ALTY, go to level 5 to get registered and you will be usher to the Imaging department once registration is done.
+
+
+What you need to prepare for the appointment:
+
+1. Patient need to be fasting at least 4-6 hours before the MRI/CT scan. No fasting needed for XRay/US. 
+
+2. Blood test result is required to determine the patient’s kidney function. If the patient has done any blood test 6 months prior, it is usable. If not, the patient will need to do a blood test first either from outside lab or in ALTY.
+
+3. Patient should inform if he/she has any past history with contrast allergy or has any allergy with any type of food or medicine. Pre-medication will be given prior to contrast injection in order to prevent severe allergic reaction.
+
+4. If contrast is ordered, it will be given via injection through the IV line. It is very safe and non-drowsy.""
+          type: text
+      type: paragraphs
+  type: sections
+type: message",
+269,Production,cleo:alty,"What are [ALTY's, your] [opening, operating] [hours, timings]
+[Operating, Opening] [hours, time, timings]
+[When,] are you open [now,]","--- 
+message: 
+  sections: 
+    - paragraphs: 
+        - text: ""ALTY operation hours are as follow: 
+
+Monday – Friday : 8.30am – 5.30pm 
+
+Saturday : 8.30am – 1.00pm 
+
+
+If you have to come after operational hours, you may do so but extra hours surcharge will be incurred.""
+          type: text
+      type: paragraphs
+  type: sections
+type: message
+",
+271,Production,cleo:alty,"What [are, is] the [cost, costs, surcharges, surcharge] if I come after [operation, operating] [hours, timings]
+[cost, costs, surcharges, surcharge] after[operating, operation][hours, timings]
+What if I come [to Alty] after your [operation, operating] [hours, timings]
+[Are, Is] there [any extra, additional][costs, cost, charge, charges] if I come after [operation, operating] [hours, timings]","--- 
+message: 
+  sections: 
+    - paragraphs: 
+        - text: There will be extra surcharges imposed if a patient comes after operational hours. These surcharges will vary depending on what type of procedure/scans you are having. For further assistance you can contact us via whats-app or call us at 0126377521.
+          type: text
+      type: paragraphs
+  type: sections
+type: message",
+272,Production,cleo:alty,"[What is the,] [cost, charge, fee] [of, for] the [consultation, scan]?
+What are the [costs, charges, fees] [are, for, of] the [consultations, scans]?
+What are the [costs, charges, fees] [like]?
+[Are, is] there any [discounts, or, promotion]?","--- 
+message: 
+  sections: 
+    - paragraphs: 
+        - text: For exact information and price please whatsapp or call us at 0126377521.
+          type: text
+      type: paragraphs
+  type: sections
+type: message",
+273,Production,cleo:alty,"Do you [provide, do] [any] sedation for MRI?  
+I am claustrophobic, can I do the MRI while sleeping?
+I am claustrophobic, [can, do] you [do, have, an,] open MRI? 
+What is the [patient’s] weight limit for your MRI?  
+[Can, Do] you do MRI for [infants, kids]?
+What [type, kind] of MRI [system, machine, device] [do, does] [ALTY, you] have?","'--- 
+message: 
+  sections: 
+    - paragraphs: 
+        - text: ""We have two types of MRI machines in ALTY. They are:
+
+1. 1.5T Siemens Aera (closed MRI). Patient’s weight limit is 225kg with 70cm bore (opening).
+
+2. 0.25T ESAOTE Weight-bearing MRI (open MRI). Patient’s weight limit is 150kg. 
+
+
+We do not provide any sedation services for either adults or infants/kids for MRI procedures.""
+          type: text
+      type: paragraphs
+  type: sections
+type: message
+",
+274,Production,cleo:alty,"Why do I need contrast for my [MRI, procedure, scan]
+Why is contrast needed for my [MRI, procedure, scan]
+Is [it, contrast] safe [for] [me, my body]
+[I think, I am] allergic to contrast, what should I do
+I have [medical, food] allergies, who should I inform
+What do I need to prepare for [my] [contrast] [procedure, scan]
+Can I drive after contrast is given [for my] [procedure, scan]
+Is it safe for me to drive after [having, given] contrast for my [procedure, scan]?","--- 
+message: 
+  sections: 
+    - paragraphs: 
+        - text: ""Contrast is only given if it is indicated in the referral letter or requested by the reporting radiologist. It is a colourless dye that enhances the area/part that the doctor/radiologist wants to see, allowing them to better visualize the pathology/problem.
+
+
+What you will need to prepare:
+
+1. You will need to fast at least 4-6 hours before contrast scan.
+
+2. Blood test result is required to determine your kidney function. If you have done any blood test in the 6 months prior, we can use those results. If not, you will need to do a blood test first, either in ALTY or at another clinic. 
+
+3. You should let us know if you have any past history with contrast allergy or any allergy to any type of food or medicine. Pre-medication will be given prior to contrast injection in order to prevent a severe allergic reaction. The contrast will be given via injection through the IV line. It is very safe and non-drowsy.""
+          type: text
+      type: paragraphs
+  type: sections
+type: message
+",
+275,Production,cleo:alty,"How long is [the, my] [procedure, scan, MRI, CT, XRAY, MAMMO, US, EOS] going to be
+How long do I need to wait for [my, the] report
+How long do I need to be [at, in] the hospital","--- 
+message: 
+  sections: 
+    - paragraphs: 
+        - text: ""X-ray/mammogram/EOS will take roughly 15-30 minutes.
+
+Ultrasound/CT scan will take approximately 30 minutes.
+
+MRI will need around 30 minutes to 2 hours depending on how many parts of MRI are being done. The report will be ready within an hour after the scan is done.
+
+
+Please come to ALTY at least half an hour early for the appointment for registration purposes. This is to reduce the delay time while registering.""
+          type: text
+      type: paragraphs
+  type: sections
+type: message",
+276,Production,cleo:alty,"[What if I am, Can I be, Going to, Will be,] late [to, for] my appointment?
+How long will my appointment be held?
+How late can I be for my appointment?","--- 
+message: 
+  sections: 
+    - paragraphs: 
+        - text: ""You are required to arrive at ALTY at least half an hour early for the appointment for registration purposes. This is to reduce the delay time while registering.
+
+
+
+If you are 10 minutes late from the appointment time, the Radiology department may reschedule the appointment to the next available time on the same day or to another available date.""
+          type: text
+      type: paragraphs
+  type: sections
+type: message",
+277,Production,cleo:alty,"I don't have a credit card. How [can, do] I [make payment, pay]?
+Can I pay [using, via] [my,] [credit card, bank transfer]?
+[What,] payment options [do, does] [you, ALTY] have?
+Do you accept [credit cards, bank transfer, cash]?
+Can I [use, pay via] my insurance?    
+Do I have to apply for [the] GL myself?    
+Can [you, ALTY] requests [for] the GL [for me, on my behalf]?","--- 
+message: 
+  sections: 
+    - paragraphs: 
+        - text: ""ALTY accept all modes of payment. ALTY is a panel to several insurance companies.
+
+
+For patients coming to ALTY for the first time, it is advisable to request for the GL yourself and ALTY will activate it once the patient arrives at ALTY for the procedure.""
+          type: text
+      type: paragraphs
+  type: sections
+type: message",
+278,Production,cleo:alty,"Where [do, can] I find my [online,] appointment [information, details]?
+Where [do, can] I find the [details, information] [of, to] my appointment?
+How [will, do] I know if my appointment [is, has been] confirmed?
+How do I [change, reschedule, cancel] my appointment? ","--- 
+message: 
+  sections: 
+    - paragraphs: 
+        - text: ""If you are receiving messages on this channel, you most likely have an upcoming appointment at ALTY.
+
+
+Please refer to the most recent message above with the links to 'Cancel' or 'Reschedule appointment' for the details of your latest appointment. You will also be receiving a reminder message a day before your appointment date
+
+If you any further assistance, please do not hesitate to contact us via whatsapp or call us at 0126377521.""
+          type: text
+      type: paragraphs
+  type: sections
+type: message
+",
+281,Production,cleo:alty,"Customer [Service, support]
+Operator
+Live agent
+i [want to, would like to][speak, talk] to [someone, a live agent, an agent, agent, ALTY, customer support]
+[im, i'm, i am] looking to [speak, talk] [with, to,] [someone, an agent, live agent]
+I would like to speak to [a person, customer support, ALTY] [directly].
+I would like someone to [call, contact] me.
+I would like someone from [customer support, ALTY] to contact me.
+I am not getting the answer I need.
+[Will] Someone please [contact, reach out] to me.
+Saya ingin bercakap dengan [seseorang, khidmat pelanggan, ALTY] [secara langsung]
+Saya perlukan seseorang untuk [menghubungi] saya. 
+Saya ingin bercakap dengan [seseorang, khidmat pelanggan, ALTY] [secara langsung]
+Saya perlukan seseorang daripada [khidmat pelanggan, ALTY] untuk menghubungi saya.
+Saya tidak mendapat jawapan yang saya perlukan.
+Anda tidak menjawab soalan saya sepenuhnya.
+[Bolehkah]  Seseorang menghubungi saya.","---
+- type: message
+  message:
+    type: whatsapp_template
+    whatsapp_template:
+      body_parameters:
+        - text: customer service officer
+          type: text
+      template_name: alty_agent_handover_1
+      language_code: en
+
+- type: message
+  message:
+    type: application_payload
+    application_payload:
+      application: ratatoskr
+      payload: '{""agent_handover"": true, ""type"": ""agent_handover""}'",
+816,Production,cleo:alty,"[thank you, thanks, tks, thank you very much, tyvm, thank u]
+[ok, okie, okay] [thanks, tks, thank you, thank u, noted]
+great [thanks, tks, thank you, thank u]
+noted [with thanks, with tks]
+","---
+- type: message
+  message:
+    type: whatsapp_template
+    whatsapp_template:
+      body_parameters:
+        - text: customer service officer
+          type: text
+      template_name: alty_agent_handover_1
+      language_code: en
+
+- type: message
+  message:
+    type: application_payload
+    application_payload:
+      application: ratatoskr
+      payload: '{""agent_handover"": true, ""type"": ""agent_handover""}'",
+778,Production,cleo:altycustomerservice,"Welcome Menu
+Main Menu
+[hi, hello, hello there, hihi, hi there, is anyone there, hello how are you, hello how r u]
+[gd, good] [morning, afternoon, evening, night]
+go back
+back to [main, welcome] menu
+what can you help me with
+","---
+message:
+  type: whatsapp_template
+  whatsapp_template:
+    header_parameters:
+      - image:
+          url: https://i.imgur.com/AQrqIeE.png
+        type: image
+    language_code: en
+    template_name: alty_cs_hello
+type: message",
+791,Production,cleo:altycustomerservice,"what can [you, u] help [me, ] with
+what are [you, u] able to help me with","I can help you with finding directions to ALTY Orthopaedic Hospital, booking an appointment as well as answering FAQs on payment method, insurance and medical reports and health screening packages.",
+779,Production,cleo:altycustomerservice,"ALTY Operating Hours
+Operating Hours
+Opening Hours
+what [is, are] [your, your hospital, hospital, alty ortho, alty] [operating, opening, clinic] [hours, hrs, hr]
+when [is, are] [u, you, your hospital, alty ortho, alty] open
+[is, are] [you, your hospital, alty ortho, alty] open [on, ] [today, tomorrow, weekend, public holiday, public hol, hari raya, now, ]
+is your hospital currently open
+are you [guys, ] currently open
+what time [does your hospital close, do you close, do you open]
+what is your hospital closing time
+","---
+message:
+  type: whatsapp_template
+  whatsapp_template:
+    language_code: en
+    template_name: alty_opening_hours
+type: message",
+780,Production,cleo:altycustomerservice,"ALTY Location
+Location
+Location & Directions
+Directions
+Waze Location
+Hospital [Location, address]
+where [is, are] [your hospital, you, u] located
+can [you, u, ] [wa, send, give, provide] [me, ] [with, ] [your, your hospital, your hospitals, alty, alty hospital] [google, waze, ] [map, address, location, direction, directions, ]
+how do i get to [your clinic, your hospital, hospital, alty ortho, alty]
+where is [ALTY, alty]","---
+message:
+  type: whatsapp_template
+  whatsapp_template:
+    language_code: en
+    template_name: alty_locations
+type: message",
+790,Production,cleo:altycustomerservice,"ALTY Contact
+Hospital Contact
+ALTY [hotline, phone, contact, ] [number, no, ]
+how do i contact [you, your hospital, alty ortho, alty, alty orthopaedic hospital]
+what is your [hospital, alty, ] [telephone, phone, contact, ] [hotline, number, no]
+how do i reach [you, your hospital, alty ortho, alty, alty orthopaedic hospital]","---
+message:
+  type: whatsapp_template
+  whatsapp_template:
+    language_code: en
+    template_name: alty_contact_info
+type: message
+ ",
+781,Production,cleo:altycustomerservice,"Schedule [Appointment, appt, consult, Consultation]
+schedule [consultation, appointment, appt, consult]
+[Book, Fix, fix, fixing][Appointment, appt]
+[Appt, Appointment] Booking
+Hospital [Appointment, appt]
+Doctor [Appointment, appt]
+i [would like, want, need] to [make, book, schedule] [an, a] [doctors, doctor, clinic, hospital, ] [appointment, appt]
+[alty, hospital, clinic, ] [appt, appointment] [schedule, booking, book]
+[book, make] [doctor, hospital, clinic, ] [appointment, appt]
+how do i [book, make, schedule] [a, an] [doctor, hospital, clinic, ] [appointment, appt]
+can [you, u] [help me, help make, help me make, help me schedule, help me book, help book, help schedule, help me to book, help me to make, help me to schedule] [a, an] [doctor, clinic, visit, hospital, ] [appointment, appt]
+[For, fix] [appt, appointment] can ask here","---
+message:
+  type: whatsapp_template
+  whatsapp_template:
+    language_code: en
+    template_name: alty_cs_schedule_appt
+type: message",
+782,Production,cleo:altycustomerservice,"Credit Card Payment
+Payment Methods
+Payment Modes
+[GL, Guarantee Letter, payment]
+[Insurance, pay via insurance, pay from insurance]
+[GL, Guarantee Letter] Payment Request
+Payment Request
+Payment Options
+can i pay [with, using, via, ] [my, ] [credit, cc, credit card, bank transfer, cash]
+i [dont, do not] have a credit card. how [can, do, should] i [pay, make payment]
+[what are, what, ] [type, sort, kind, ] [of, ] payment options [do, does, ] [you, your hospital, alty ortho, alty] [have, accept]
+can i [pay, use, pay via, make payment using] [my, ] [insurance, corporate insurance]
+do i have to apply for [the, ] [Guarantee letter, GL, guarantee] myself
+can [your hospital, alty, you, ] [make request, request, requests] for the [Guarantee letter, GL, guarantee] [for me, on my behalf]
+how do i [apply for, get] [my, the, ] [insurance, ] [Guarantee letter, GL, guarantee]
+what payment [options, methods, method, option] [do you, do u, can you, can u] [accept, have]
+do you accept [cash, credit card, cc, bank transfer, wire transfer, insurance] [pay, payment, ]","---
+message:
+  type: whatsapp_template
+  whatsapp_template:
+    language_code: en
+    template_name: alty_credit_cards
+type: message
+",
+783,Production,cleo:altycustomerservice,"Parking Facilities
+Is there parking
+parking
+Parking Info
+do [alty, you, u] [have, provide] parking [facilities, facility, lots, lot, ]
+where can i park
+how to park
+does [alty, your hospital] [provide, have] parking [facilities, facility, lots, lot, ]
+can i park at [alty, your hospital]
+can i know do you have car park
+is there [a, ] parking [facility, lot, facilities, lots] [near, near to, nearby] [your hospital, alty, ]
+Do you provide [Parking][Car Park]
+Got parking
+Got Carpark","---
+message:
+  type: whatsapp_template
+  whatsapp_template:
+    language_code: en
+    template_name: alty_car_park_facilities
+type: message
+",
+784,Production,cleo:altycustomerservice,"999 Emergency
+999
+Emergency Department
+Contact [for, ] [A&E, Emergency, Emergency Department, Emergency Dept, ED, ed]
+[we, i, ] need [an ambulance, urgent help, ambulance, emergency help]
+please provide [me with, me, us, ] [a, ] [contact, contact number, contact no] for [ED, emergency dept, emergency department, A&E, emergency room]
+[how do, how can, ] [we, i,] contact [ED, emergency, emergency department, emergency dept, A&E, emergency room]
+is your [ED, emergency dept, emergency department, A&E, emergency room] open","ALTY Hospital Emergency Department provides 24/7 service.  Please contact +60-2777-0999 for Emergency Department.
+",
+785,Production,cleo:altycustomerservice,"Health Screening Packages
+what [kind, type, sort, ] [of, ] [health screening, screening, annual screening] [packages, promo, promotion, package] [do, does, ] [you, your hospital, your clinic] [currently have, have now, have]
+[do u, do you, does your hospital] [have, provide, offer] [any, ] [health screening, screening, annual check up, annual screening, medical checkup] [packages, package, promos, promo, ]
+i am looking [to do, for] [my, ] [annual, health] [screening, checkup, check up, medical checkup]","---
+message:
+  type: whatsapp_template
+  whatsapp_template:
+    language_code: en
+    template_name: alty_health_screening
+type: message",
+786,Production,cleo:altycustomerservice,"Insurance Application Form
+[Insurance form, application, application insurance]
+Medical Report Application
+Medical Claims
+Medical Report
+i [need, want] [an, ] insurance [application, applicaiton, ] [form, forms, ]
+where can i get [the, an, my, ] insurance [application, applicaiton, ] [form, forms, ]
+how do i get [the, an, my, ] insurance [application, applicaiton, ] [form, forms, ]
+how do i get [the, an, my] [medical report, report, medical reports]
+where can i get [the, an, my] [medical report, report, medical reports]
+","---
+message:
+  type: whatsapp_template
+  whatsapp_template:
+    language_code: en
+    template_name: alty_medical_report
+type: message",
+787,Production,cleo:altycustomerservice,"First Time Visit
+First Visit
+1st Visit
+what to bring for [1st, first] [appointment, appt]
+what [should, do] [do we need to, i need to, i, we] bring for [our, my] [first, ] visit [to your hospital, to alty, to alty ortho, to see the doctor, to see my doctor, to see a doctor, to meet my doctor]
+what [item, items, things, thing] [should, do] [do we need to, i need to, i, we] bring for [our, my] [first, ] visit [to your hospital, to alty, to alty ortho, to see the doctor, to see my doctor, to see a doctor, to meet my doctor]","For first time visit, please bring your Identification Card (IC), Passport, latest investigation (lab / imaging) report, and Guarantee Letter (GL).  Please come 30 minutes earlier for registration to avoid appointment delay. ",
+788,Production,cleo:altycustomerservice,"Live Agent
+Live agent
+Chat Customer Service
+Chat with customer service
+Customer [Support, Rep, Agent, Service]
+[i want to speak, Can I speak] [to,] [a, an, ] [someone, agent, human, representative, rep, hospital representative, hospital rep, hospital agent, live agent, human agent, customer service]
+[Speak, Talk] to [a,] [hospital representatives, customer support, customer service, customer rep, agent]
+Operator [please, pls, ]
+human agent [please, pls, ]
+i [dont, do not] want [to speak with, to speak to, ] [bot, a bot, bots]
+Yes
+yes","---
+- type: message
+  message:
+    type: whatsapp_template
+    whatsapp_template:
+      template_name: alty_customer_support
+      language_code: en
+
+- type: message
+  message:
+    type: application_payload
+    application_payload:
+      application: ratatoskr
+      payload: '{""agent_handover"": true, ""type"": ""agent_handover""}'",
+789,Production,cleo:altycustomerservice,"[thanks, thank, tks] [you, u, ] [very much, ]
+[you, u] [are, r] [smart, helpful, useful]
+great [thanks, thank, tks]
+[okay, ok, okie, okok, k] [thanks, thank, tks]
+[okay, ok, okies, okie, okok, k]
+tyvm
+
+",You're very welcome! 😎 I am glad to be helpful.,
+858,Production,cleo:altycustomerservice,"I would like to check my refund status. 
+[Refund how, how to refund, how to get refund, money back, refund]
+how to check refund status
+Refund Status
+","---
+message:
+  type: whatsapp_template
+  whatsapp_template:
+    language_code: en
+    template_name: alty_refund_status
+type: message",
+859,Production,cleo:altycustomerservice,"Imaging Enquiry
+I would like to enquire about [Imaging, CT, ct scan, CT scan, ct, x-ray X-RAY, xray, x ray, mri, MRI]
+Contact/XRay/CT/MRI
+[Imaging, CT, ct scan, CT scan, ct, x-ray X-RAY, xray, x ray, mri, MRI]
+[Hi, hi] i am looking for MRI","---
+message:
+  type: whatsapp_template
+  whatsapp_template:
+    language_code: en
+    template_name: alty_enquire_imaging
+type: message",
+927,Production,cleo:altycustomerservice,"[Cardiac, Heart] [Consultant, Doctor, Clinic]
+Schedule [Cardiac, Heart] [Consultant, Doctor, Clinic]
+Consultant Cardiologist
+I would like to [schedule, make] an appointment with the [consultant cardiologist] [cardiac doctor][heart doctor][heart clinic].
+I would like to speak to [the,a,] [cardiologist, cardiac Clinic, heart clinic]","---
+message:
+  type: whatsapp_template
+  whatsapp_template:
+    language_code: en
+    template_name: alty_cardiac_schedule
+type: message",
