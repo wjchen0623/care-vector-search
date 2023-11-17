@@ -1,3 +1,5 @@
+from dotenv import load_dotenv
+load_dotenv()
 from llama_index import VectorStoreIndex
 from llama_index import SimpleDirectoryReader
 import os

@@ -1,12 +1,11 @@
+from dotenv import load_dotenv
+load_dotenv()
 import streamlit as st
 from streamlit.logger import get_logger
 import json
 import re
 import os
 from faq_vector_search import faq_query_engine, web_content_retriever_engine
-from dotenv import load_dotenv
-
-load_dotenv()
 
 LOGGER = get_logger(__name__)
 
@@ -39,7 +38,7 @@ def run():
         """
         Demo to showcase what vector search can do for Bot MD Care.  
         Set up with ALTY as an example.  
-        Vector search is only trained on the first entry of typical triggers.  
+        Vector search is only trained on all the triggers.
         GenAI indexed the website of the client.  
     """
     )
@@ -69,11 +68,11 @@ def run():
     
       if query is not None:
          old_query = re.sub(r"\s+", "", query)
-         old_reply = original_dict.get(old_query, "")
+         old_reply = original_dict.get(old_query.lower(), "")
          if old_reply == "":
             st.write("---\nSorry Bot")
          else:
-            st.write(original_dict[old_query])
+            st.write(old_reply)
 
     with col2:
       if query is not None:

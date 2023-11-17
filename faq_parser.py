@@ -53,16 +53,17 @@ new_faq_dict = {}
 faq_dict = {}
 
 for i in range(faq_df.shape[0]):
-    file_name = create_safe_filename(faq_df["Tags"][i] + faq_df["Trigger Phrases One"][i][0])
-    output_str = "\n".join(faq_df["Trigger Phrases One"][i])
-    file_path = os.path.join(FAQ_DIR, file_name)
-    with open(file_path, "w") as f:
-        f.write(output_str)
-    new_faq_dict[file_path] = faq_df['Response'][i]
     for trigger_phrase in faq_df["Trigger Phrases"][i]:
+        if trigger_phrase is None:
+            trigger_phrase = ""
+        file_name = create_safe_filename(faq_df["Tags"][i] + trigger_phrase)
+        file_path = os.path.join(FAQ_DIR, file_name)
+        with open(file_path, "w") as f:
+            f.write(trigger_phrase)
+        new_faq_dict[file_path] = faq_df['Response'][i]
         trigger_phrase_no_space = re.sub(r"\s+", "", trigger_phrase)
-        faq_dict[trigger_phrase_no_space] = faq_df['Response'][i]
-
+        faq_dict[trigger_phrase_no_space.lower()] = faq_df['Response'][i]
+        
 with open(os.path.join(FAQ_PATH, "faq_dict_old.json"), 'w') as f:
     json.dump(faq_dict, f, indent=4)
 
