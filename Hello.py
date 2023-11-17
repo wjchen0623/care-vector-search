@@ -4,6 +4,9 @@ import json
 import re
 import os
 from faq_vector_search import faq_query_engine, web_content_retriever_engine
+from dotenv import load_dotenv
+
+load_dotenv()
 
 LOGGER = get_logger(__name__)
 

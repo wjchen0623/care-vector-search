@@ -7,3 +7,4 @@ llama-index
 trafilatura
 requests
 beautifulsoup4
+python-dotenv
