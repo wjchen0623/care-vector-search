@@ -1,7 +1,7 @@
 from dotenv import load_dotenv
 load_dotenv()
-from llama_index import VectorStoreIndex
-from llama_index import SimpleDirectoryReader
+from llama_index.core import VectorStoreIndex
+from llama_index.core import SimpleDirectoryReader
 import os
 
 PERSIST_DIR = "data/ALTY"

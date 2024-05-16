@@ -1,8 +1,8 @@
-from llama_index import StorageContext, load_index_from_storage, get_response_synthesizer
-from llama_index.retrievers import VectorIndexRetriever
-from llama_index.query_engine import RetrieverQueryEngine
-from llama_index.indices.postprocessor import SimilarityPostprocessor
-from llama_index.callbacks import CallbackManager, TokenCountingHandler
+from llama_index.core import StorageContext, load_index_from_storage, get_response_synthesizer
+from llama_index.core.retrievers import VectorIndexRetriever
+from llama_index.core.query_engine import RetrieverQueryEngine
+from llama_index.core.postprocessor import SimilarityPostprocessor
+from llama_index.core.callbacks import CallbackManager, TokenCountingHandler
 import tiktoken
 
 FAQ_INDEX_PATH = "data/ALTY/index_dir/faq_index"
